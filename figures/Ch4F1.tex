@@ -1,0 +1,74 @@
+% Pattern Info
+ 
+\tikzset{
+pattern size/.store in=\mcSize, 
+pattern size = 5pt,
+pattern thickness/.store in=\mcThickness, 
+pattern thickness = 0.3pt,
+pattern radius/.store in=\mcRadius, 
+pattern radius = 1pt}
+\makeatletter
+\pgfutil@ifundefined{pgf@pattern@name@_bt4epe2mx}{
+\pgfdeclarepatternformonly[\mcThickness,\mcSize]{_bt4epe2mx}
+{\pgfqpoint{0pt}{0pt}}
+{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+{\pgfpoint{\mcSize}{\mcSize}}
+{
+\pgfsetcolor{\tikz@pattern@color}
+\pgfsetlinewidth{\mcThickness}
+\pgfpathmoveto{\pgfqpoint{0pt}{0pt}}
+\pgfpathlineto{\pgfpoint{\mcSize+\mcThickness}{\mcSize+\mcThickness}}
+\pgfusepath{stroke}
+}}
+\makeatother
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Polygon Curved [id:ds7313279635399221] 
+\draw   (96,85) .. controls (97,64) and (230,52) .. (230,70) .. controls (230,88) and (194,71) .. (214,101) .. controls (234,131) and (175,149) .. (155,119) .. controls (135,89) and (95,106) .. (96,85) -- cycle ;
+%Shape: Ellipse [id:dp9151376985030744] 
+\draw  [pattern=_bt4epe2mx,pattern size=6pt,pattern thickness=0.75pt,pattern radius=0pt, pattern color={rgb, 255:red, 128; green, 128; blue, 128}] (142.28,81.2) .. controls (146.96,71.19) and (164.94,69.7) .. (182.46,77.88) .. controls (199.97,86.05) and (210.39,100.79) .. (205.72,110.8) .. controls (201.04,120.81) and (183.06,122.3) .. (165.54,114.12) .. controls (148.03,105.95) and (137.61,91.21) .. (142.28,81.2) -- cycle ;
+%Shape: Polygon Curved [id:ds132327224769744] 
+\draw   (281,58) .. controls (301,48) and (289,25) .. (340,32) .. controls (391,39) and (351,88) .. (371,118) .. controls (391,148) and (334,146) .. (314,116) .. controls (294,86) and (261,68) .. (281,58) -- cycle ;
+%Curve Lines [id:da8275404505595068] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 0.84pt off 2.51pt}]  (201,117) .. controls (259.12,92.37) and (303.65,137.61) .. (346.54,139.92) ;
+\draw [shift={(348.5,140)}, rotate = 181.32] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Curve Lines [id:da9060207894942087] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ] [dash pattern={on 0.84pt off 2.51pt}]  (148,75) .. controls (206.71,50.12) and (249.57,27.23) .. (316,30.94) ;
+\draw [shift={(317,31)}, rotate = 183.42] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Shape: Circle [id:dp3248341251389637] 
+\draw   (143.8,87.78) .. controls (143.66,80.75) and (149.24,75.06) .. (156.27,75.06) .. controls (163.29,75.06) and (169.1,80.75) .. (169.24,87.78) .. controls (169.39,94.8) and (163.8,100.5) .. (156.78,100.5) .. controls (149.75,100.5) and (143.94,94.8) .. (143.8,87.78) -- cycle ;
+%Shape: Circle [id:dp6767491936815082] 
+\draw   (297.92,67.28) .. controls (297.72,56.94) and (305.93,48.56) .. (316.27,48.56) .. controls (326.61,48.56) and (335.16,56.94) .. (335.37,67.28) .. controls (335.57,77.62) and (327.36,86) .. (317.02,86) .. controls (306.68,86) and (298.13,77.62) .. (297.92,67.28) -- cycle ;
+%Curve Lines [id:da5288665296815309] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (168,95) .. controls (227,70) and (244.5,81.5) .. (311.5,85.5) ;
+
+
+%Curve Lines [id:da027014413608954735] 
+\draw [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,draw opacity=1 ]   (151.5,75.5) .. controls (210.5,50.5) and (249.27,44.56) .. (316.27,48.56) ;
+
+
+
+% Text Node
+\draw (131,84) node   {$E$};
+% Text Node
+\draw (143,135) node   {$X$};
+% Text Node
+\draw (392.5,132.5) node   {$Y$};
+% Text Node
+\draw (157.5,83.5) node   {$p$};
+% Text Node
+\draw (184,106) node   {$\mathcal{N}_{{\delta }_{\varepsilon }}( p)$};
+% Text Node
+\draw (318.5,63) node   {$q$};
+% Text Node
+\draw (332.5,91.5) node   {$\mathcal{N}_{\varepsilon }( q)$};
+% Text Node
+\draw (253,119) node   {$f:E\rightarrow X$};
+
+
+\end{tikzpicture}

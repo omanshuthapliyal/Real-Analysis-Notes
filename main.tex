@@ -1,0 +1,83 @@
+\documentclass[ebook,10pt,oneside,openany]{memoir}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+\usepackage{url}
+
+% for placeholder text
+\usepackage{lipsum}
+\usepackage{amsfonts, mathtools}
+\usepackage[english]{babel}
+\usepackage{amssymb, enumitem, enumerate, amsthm, amsmath, mathabx}
+
+% ----- GRAPHICS/TIKZ-------
+\usepackage{tikz, wrapfig, pgfplots}
+\pgfplotsset{compat=1.14}
+\usetikzlibrary{arrows,positioning,patterns,fadings}
+%---------------------------
+
+
+ % New commands
+\newcommand{\naturals}{\mathbb{N}}
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
+\newcommand{\complex}{\mathbb{C}}
+\newcommand{\nullset}{\varnothing}
+\newcommand{\diam}[1]{\mathrm{diam}\left(#1\right)}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\upRiemannint}[2]{
+  \overline{\int_{#1}^{#2}}
+}
+\newcommand{\loRiemannint}[2]{
+  \underline{\int_{#1}^{#2}}
+}
+
+% Renewed commands
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\bar}[1]{\widebar{#1}}
+
+
+% My environments
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}{Remark}
+\newtheorem{claim*}{Claim}
+\newtheorem*{definition}{Definition}
+% To ensure proper numbering of theorems within chapters
+\numberwithin{theorem}{subsection} 
+
+
+\title{My Notes on Real Analysis}
+\author{For MA 504}
+
+% To ensure equation numbering are correct for chapter 0
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+
+\begin{document}
+% To include Chapter Zero
+\setcounter{chapter}{-1}
+\maketitle
+
+
+\tableofcontents
+
+\include{Ch0}
+
+\include{Ch1}
+
+\include{Ch2}
+
+\include{Ch3}
+
+\include{Ch4}
+
+\include{Ch5}
+
+\include{Ch6}
+
+\end{document}

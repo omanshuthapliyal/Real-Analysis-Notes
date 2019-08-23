@@ -1,0 +1,184 @@
+\chapter{Sequences}
+
+A \textbf{sequence} in $X$ is a mapping $f:\naturals\rightarrow X$. That is, a sequence is a list that is numbered.  The map is the relation between the entries of the list and number of the entry on the list.
+We simply write $f(1)=p_1$ or $p_n=f(n)$ by omitting the map $f$ and only denoting the sequence by its terms.
+We often misuse the notation to denote $\{p_n\}$ a sequence with terms $\{p_1,p_2,\cdots,p_n,\cdots\}$ which is the same notation as the elements $p_1,p_2,$etc., but the two are different.
+
+\begin{definition}
+We say a sequence $p_n$ converges to some $p\in X$ if for any $\varepsilon > 0,\,\exists N_\varepsilon\in \naturals $ such that $d(p_n,p)<\epsilon$ if $n\geq N_\varepsilon$.
+\end{definition}
+The definition of a convergent sequence is that it gets arbitrarily close to the term $p\in X$. This point $p$ is called the limit of the sequence. Note that this definition is equivalent to saying that $p_n$ is convergent if $p_n \in N_\varepsilon(p),\,\forall n\geq N_\varepsilon$. This clearly means that there are infinite points of the sequence which lie in $N_\varepsilon (p)$. Note that this property of a convergent sequence is often used to define infinite sets, neighbourhoods, open and closed sets. This is also the intuition behind the nomenclature of a `limit point', i.e., the limit point of the set has a sequence in the set whose limit is the point. 
+Only finitely many points of a sequence $\{p_n\}$ lie outside any neighbourhood around the limit. Actually, we even know how many points would be outside, they would be points $\{p_1,p_2,\cdots,p_{N_\varepsilon}\}$.
+
+\begin{remark}
+\begin{enumerate}[label=R\arabic*.]
+\item If a sequence $p_n\rightarrow p$, then the limit $p$ is unique.
+\item If a sequence $p_n$ is convergent, then it is bounded.
+\item Algebraic operations on Numeric Sequences: Consider two sequences $s_n\to s$ and $p_n\to p$,
+\begin{enumerate}[label=R.2.\alph*]
+    \item $\lim_{n\to\infty}(s_n+p_n) = s + p$
+    \item $\lim_{n\to\infty}(cs_n) = cs$
+    \item $\lim_{n\to\infty}(s_np_n) = sp$
+    \item $\lim_{n\to\infty}(s_n/p_n) = s/p$ if $p\neq0$
+\end{enumerate}
+\end{enumerate}
+\end{remark}
+
+\subsection{Sequences in $\reals^k$}
+Suppose $\{x_n\}_{n=1}^\infty\in\reals^k$ such that $x_n = \{x_{1,n},x_{2,n},\cdots,x_{k,n}\}\implies \{x_{i,n}\}$ is a sequence in $\reals$. These individual sequences are projections of the original sequence in $\reals^k$ in the form of components of $\{x_n\}$. Therefore, $\{x_n\}_{n=1}^\infty\in\reals^k,x_n\to a=\{a_1,a_2,\cdots,a_k\}$ if $x_{i,n}\to a_i$ for any $i=1,2,\cdots,k$.
+
+\section{Subsequences}
+Consider a sequence $\{p_n\}\in X$ and some indices $n_1,n_2,\cdots,n_k,\cdots\in \naturals$ such that they form an increasing sequence $n_1<n_2<\cdots<n_k<\cdots$, then we can use the new increasing ``sequence" of integers to index terms out of $p_n$. This newly drawn sequence of terms is a \textit{subsequence} denoted by $\{p_{n_k}\}_{k=1}^\infty$.
+
+\begin{theorem}
+If $\{p_n\}$ is a sequence in $X$ such that $p_n\to p$ as $n\to \infty$, then for any subsequence $\{p_{n_k}\}$, $p_{n_k}\to \infty$ as $k\to \infty$ as well.
+\end{theorem}
+
+\subsubsection{Sequences in a compact set}
+
+\begin{enumerate}[label=(\roman*)]
+\item Let $\{p_n\}$ be a sequence in a compact set $K\subset X$ then $\{p_n\}$ has a convergent subsequence.
+\item {[Corollary of (i)]} If $\{p_n\}$ is a bounded sequence in $\reals^k$, then $\{p_n\}$ has a convergent subsequence. \textbf{(Bolzano-Weierstrass for Sequences)}
+\end{enumerate}
+
+\section{Subsequential Limits}
+It often helps (how?) to look at a set of \textit{all} the subsequences of a sequence. This translates to the supremum and infimum values of the set of all the limits points of a sequence. Note that for a convergent sequence, this set should collapse to a single point. 
+Let us denote the set of all limit points of the sequence by $E^*=\{p\in X : p_{n_k}\to p\}$ for some subsequence $\{p_{n_k}\}$, then the set $E^*$ is a closed set $\implies$ if $p$ is a limit point of $E^*$, then $p\in E^*$.\\
+
+Note that this set need not even be countable, even though the set of values taken by the sequence itself is countably infinite. E.g., the sequence. $\{1/1,1/2,2/2,1/3,2/3,3/3,1/4,2/4,3/4,4/4,\cdots\}$ is forming the set of all rationals, but we can form subsequences out of it to converge to \textit{any} irrational number, so the set of susbequential limits for the sequence is actually infinite.
+
+\section{Cauchy Sequences}
+Cauchy sequences generalizes the idea of convergent sequences. Recall that a convergent sequence is one where all the points ($\forall n$) eventually ($\forall n \geq N_\varepsilon$) fall within an $\varepsilon$ radius neighbourhood ($N_\varepsilon(p)$) of the limit point $p$ ($\forall n\geq N_\varepsilon, p_n\in N_\varepsilon(p)$). This is a strict demand on the sequence $p_n$, and Cauchy sequences are slightly more tolerant of sequences that could not converge, but the terms of the sequence itself come arbitrarily close to each other.
+\begin{definition}
+\begin{enumerate}
+\item {[Cauchy sequence.]} We say a sequence $\{p_n\}$ is Cauchy if for any $\varepsilon >0\,\exists N_\varepsilon$ such that $d(p_n,p_m)<\varepsilon\,\forall m,n\geq N_\varepsilon$.
+\item {[Tail of a sequence.]} Let $E_N=\{p_N,p_{N+1},\cdots,p_{N+k},\cdots\}$, the $E_N$ is the ``tail" of the sequence $p_n$
+\item {[Diameter of a set.]} For some metric subspace $E\subset X$, we define the diameter as the ``largest distance between any two points" in the set, i.e., $\diam{E}=\sup{\{d(p,q):p,q\in E\}}$
+\end{enumerate}
+\end{definition}
+\noindent \textbf{Note:}\\
+$\{p_n\}$ is Cauchy $\iff$ $\diam{E_n}\to 0$ as $n\to \infty \iff \diam{E_{N_\varepsilon}}\leq \varepsilon$, and Cauchy sequences are bounded.
+
+Convergent sequence, in general, need us to know the limit $p$ apriori, in order to write the properties of the sequence. Cuachy sequence, since not necessarily convergent, do not need us to know the limit (which may or may not exist), and still comment upon the properties of the sequence. Furthermore, \textbf{if $p_n\to p, \implies\{p_n\}$ is Cauchy}. But Cauchy sequences are not necessarily convergent. E.g., let $p_n\in\rationals$ be such that $p_n\to \sqrt{2}$. Clearly, $p=\sqrt{2}\notin\rationals$, but $\{p_n\}$  is Cauchy in $\rationals$. In general, think of any sequence in $K\setminus\{p\}\subset X$ where $p$ is the limit of the sequence. The sequence remains Cauchy, but no longer converges in its set.
+
+\begin{definition}
+We call a metric space $X$ to be \textbf{complete} if every Cauchy sequence in $X$ is convergent.
+\end{definition}
+
+\begin{theorem}
+\begin{enumerate}[label=(\roman*)]
+\item If $X$ is a compact set, then $X$ is complete
+\item {[Corollary]} $\reals^k$ is complete
+\end{enumerate}
+\end{theorem}
+Therefore,
+\begin{enumerate}[label=C\arabic*.]
+\item Cauchy sequences in complete metric spaces are convergent ($\because$ in a complete metric all Cauchy sequences converge)
+\item Compact metric spaces are complete
+\item Euclidean spaces $\reals^k$ are compact, therefore complete
+\item \textbf{$\implies$ Cauchy sequences in $\reals^k$ are convergent}.
+\end{enumerate}
+
+\subsection{Monotone Sequences}
+In order to define monotonicity of sequences, we need an ordered subset of a metric space. The unsurprisingly banal definition of monotonicity that thus follows is that $\{p_n\}$ is monotonically increasing if $s_n\leq s_{n+1}\,\forall n\in \naturals$ and monotonically decreasing if $s_n \geq s_{n+1}\,\forall n\in\naturals$. Obviously, a sequence could monotonically increase (decrease) to (minus) infinity. If we have a way to bound the monotone sequence, it would be convergent. \\
+
+Therefore, a monotone sequence $\{s_n\}$ is convergent $\iff$ $\{s_n\}$ is bounded. Further, we will use the following shorthand: $\{s_n\}\nearrow$ if $\{s_n\}$ is increasing, and $\{s_n\}\searrow$ if it is a decreasing sequence.
+
+\section{Subsequential Limits, back to: $\limsup$ and $\liminf$}
+
+The concept of subsequential limits is introduced so as to discuss the properties of all sequences, and not only convergent ones.
+A subsequential limit is defined as the limit of a subsequence $s_{n_k}$ from the sequence $s_n$.
+Collecting all such subsequential limts gives us a set $E=\{s:s_{n_k}\to s\, \text{ for all subsequences } s_{n_k} \text{ of } s_n\}$.
+For convergent sequences, all subsequences have to converge to the same point, so the set $E$ collapses to a single point.
+\subsection{Upper \& Lower limits of sequences}
+For a sequence in $\reals$ we say:
+\begin{itemize}
+\item $s_n\to \infty$, if for any $M\in \reals\,\exists N_M\in\naturals$ such that $s_n>M\,\forall n\geq N_M$
+\item $s_n\to -\infty$, if for any $M\in \reals\,\exists N_M\in\naturals$ such that $s_n<M\,\forall n\leq N_M$
+\end{itemize}
+
+Now consider sequences in the extended reals $\bar{\reals}=\reals\cup\{\infty,-\infty\}$.
+Let us form a set of all subsequential limits same as above, but this time in $\bar{\reals}$. 
+We define $\liminf$ and $\limsup$ for $E=\{x\in\bar{\reals}:s_n\to x\}$
+\begin{itemize}
+\item $s^*\triangleq \limsup\limits_{n\to\infty} {s_n}=\sup{E}\in \bar{\reals}$
+\item $s_*\triangleq \liminf\limits_{n\to\infty} {s_n}=\inf{E}\in \bar{\reals}$
+\end{itemize}
+
+\subsection{Properties of $\limsup$}
+Let $s^*=\limsup{s_n}=\sup{E}$, then
+\begin{enumerate}[label=P(ls)\arabic*.]
+\item There is a subsequence which converges to $s^*$, i.e., $s^*\in E\equiv\exists s_{n_k}\to s^*$
+\item If $s^*<x$, then $\exists N$ such that $s_N < x\,\forall n\geq N$ or, there are finitely many $n$'s such that $s_n\geq x$
+\item $s^*$ is unique
+\item If $s_n\leq t_n\,\forall n\geq n_0$, then
+\begin{enumerate}[label=(\roman*)]
+    \item $\limsup{s_n}\leq \limsup{t_n}$
+    \item $\liminf{s_n}\leq \liminf{t_n}$
+\end{enumerate}
+A particular case of above is if $s_n\leq M\,\forall n\geq n_0\implies \limsup{s_n}\leq M$
+\end{enumerate}
+
+\section{Series}
+For a sequence $a_n$ in $\reals$, we can define a new sequence $s_n = \sum^n_{k=0} a_k$, i.e., the n-th term of a series is the n-th partial sum of a sequence.
+This new sequence is called a \textit{series}.
+
+Therefore, similar convergence criteria hold for a series as well.
+For instance, the Cauchy criterion for series would be as follows.
+$\sum^n_{k=0} a_k$ is convergent $\iff$ for any $\varepsilon>0\exists N_\varepsilon$ such that $\abs{\sum^m_{k=n} a_k}<\varepsilon$ for all $m,n>N_\varepsilon, m>n$.
+\begin{definition}
+We say $\sum a_n$ is \textit{absolutely convergent} if $\sum \abs{a_k}<\infty$.
+\end{definition}
+Absolute convergence is a stronger criterion and if a series $\sum a_n$ converges absolutely $\implies$ the series $\sum a_n$ converges.
+Note that the converse need not be true, e.g, $s_n=\sum^n (-1)^n$.
+
+\subsection{Convergence tests for series.}
+\subsubsection{Comparison Test.}
+Comparison test compares the given series in question with another series whose convergence (divergence) is known to us.
+Suppose $\sum a_n$,$\sum c_n$ are two series and $c_n\geq  0$, then
+\begin{enumerate}[label=(\alph*)]
+    \item if $\abs{a_n}\leq c_n$ for all $n\geq n_0$ and the upper series converges $\sum c_n< \infty$, then $\sum a_n$ is convergent.
+    \item if $\abs{a_n}\geq c_n$ for all $n\geq n_0$ and the upper series converges $\sum c_n = \infty$, then $\sum a_n$ is divergent.
+\end{enumerate}
+
+An interesting result for series convergence is the \textbf{Cauchy condensation test} which states that for an increasing, positive sequence $a_n$, such that $a_n\geq a_{n-1}\geq0, \forall n\geq 0$, $\sum a_n<\infty \iff \sum 2^k a_{2^k}< \infty$.
+The intuition behind the condensation test is to split each partial sum and bound it by sums of terms as multiples of $2^k$. For instance, $s_7 = a_1+\cdots+a_7\leq a_1 + (a_2 + a_2) + (a_4+a_4+a_4+a_4)=a_1 + 2a_2 + 4a_4$, etc.
+
+\subsubsection{Root and Ratio tests.}
+\begin{theorem}[Root Test]
+Let $_n\geq 0$ and let $\alpha = \limsup_{n\to\infty} \sqrt[\leftroot{-2}\uproot{2}n]{a_n}$, then
+\begin{enumerate}[label=(\alph*)]
+    \item if $\alpha < 1 \implies \sum a_n < \infty$.
+    \item if $\alpha > 1 \implies \sum a_n = \infty$.
+    \item if $\alpha = 1$, the root test is inconclusive.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Ratio Test]
+For a series with terms $a_n\neq0$, 
+\begin{enumerate}[label=(\alph*)]
+    \item if $\limsup_{n\to\infty} \abs{\frac{a_{n+1}}{a_n}}< 1\implies \sum a_n < \infty$
+    \item if $\abs{\frac{a_{n+1}}{a_n}} \geq 1\implies \sum a_n = \infty$
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+Let $c_n>0$, then\\
+$\liminf_{n\to \infty} \frac{c_{n+1}{c_n}} \leq \liminf_{n\to \infty} \sqrt[\leftroot{-2}\uproot{2}n]{c_n} \leq \limsup_{n\to \infty} \sqrt[\leftroot{-2}\uproot{2}n]{c_n} \leq \limsup_{n\to \infty} \frac{c_{n+1}}{c_n}$
+\end{remark}
+That is, the root test provides a tighter bound, but is numerically harder than the ratio test.
+And if the ratio test is satisfied, root test is automatically satisfied as well.
+
+\section{Power Series.}
+For some $z\in \mathbb{C}$, we call the expression $\sum_{n=0}^\infty c_n z^n$ a power series.
+Naturally, the convergence of $\sum c_n z^n$ depends on where $z$ lies in the complex plane.
+We define by $R=\frac{1}{\alpha}$ the \textit{radius of convergence} of the power series $\sum c_n z^n$, where $\alpha = \limsup \sqrt[\leftroot{-2}\uproot{2}n]{\abs{c_n}}$.
+\begin{theorem}
+For $R=\frac{1}{\alpha}, R\in [0,\infty]$
+\begin{enumerate}[label=(\roman*)]
+    \item if $\abs{z}<R\implies \sum c_n z^n$ converges absolutely.
+     \item if $\abs{z}>R\implies \sum c_n z^n$ diverges.
+     \item if $\abs{z}>R$, the test is inconclusive.
+\end{enumerate}
+\end{theorem}
+

@@ -1,0 +1,87 @@
+\chapter{Sequences \& Series of Functions}
+For a metric space $X$ and a sequence of functions $f_n:X\to\reals$, we want to define what it means for the sequence to `approach' a function, i.e., what is meant by $f_n\to f$ (or $\sum^\infty_{n=1}f_n=f$) on $X$.
+
+\section{Point-wise Convergence.}
+We say $f_n\to f$ \emph{point-wise} on $E\subset X$ if $f_n(x)\to f(x)\,\forall x\in E$.
+Similarly, $\sum f_n\to f\iff \sum f_n(x)\to f(x)\,\forall x\in E$.
+
+This definition is intuitive, however, has little use because of several drawbacks.
+
+\subsection{Point-wise convergence destroys continuity:}
+Let $f_n(x)=x^n,x\in[0,1]$.
+Note that $f_n(x)\to 0,x\in[0,1)$ and $f(1) = 1$.
+A graphical proof of this is shown in Fig. \ref{fig:ptwiseCont}.
+\begin{figure}[!ht]
+    \centering
+    \scalebox{0.6}{\input{figures/Ch6F1.tex}}
+    \caption{$f_n$'s are continuous $\forall n$ but their limit is not}
+    \label{fig:ptwiseCont}
+\end{figure}
+
+\subsection{Point-wise convergence destroys integral:}
+Let $f_n(x)=(2n+2)x(1-x^2)^n$ on $[0,1]$ and $f_n(0)=f_n(1)=0$.
+\vspace{-1.5in}
+\begin{figure}[!ht]
+    \centering
+    \scalebox{0.6}{\input{figures/Ch6F2.tex}}
+    \caption{$f_n$'s are continuous $\forall n$ but their limit is not}
+    \label{fig:ptwiseInt}
+\end{figure}
+
+Note from Fig. \ref{fig:ptwiseInt} that $f_n\to 0\implies \int^1_0 f = 0$, but $\int^1_0 f=1$.
+Therefore, point-wise convergence does not preserve the value of the integral.
+
+\subsection{Point-wise convergence destroys integrability:}
+Let $f_N(x)=1$ if $x=m/n,\,n\leq N$ and $0$ otherwise.
+Since $f_N$ has finitely many discontinuities on $[0,1]\implies f_N\in\mathcal{R}$.
+However, $\lim_{N\to\infty f_N\to}$ Dirichlet's function, which is not integrable.
+
+Therefore, we need to come up with a better criterion for convergence of sequences of functions that preserve these properties.
+
+\section{Uniform Convergence.}
+\begin{definition}[Uniform Convergence]
+We say $f_n\to f$ \emph{uniformly} on $E\subset X$ if for any $\varepsilon>0\,\exists N_\varepsilon>0$ such that $\abs{f_n(x)-f(x)}<\varepsilon$ if $n\geq N_\varepsilon$ for \emph{any} $x\in E$.
+\end{definition}
+\begin{definition}[Uniform norm]
+$f_n\to f$ uniformly on $E\iff\sup_E \abs{f_n-f}\to 0$.
+Then we can define the uniform norm as $\norm{f_n-f}\coloneqq \sup_E \abs{f_n-f}$.
+\end{definition}
+In other words, we claim uniform convergence w.r.t. to this newly defined distance approaching zero.
+
+\subsection{Cauchy criterion for Uniform Convergence.}
+$f_n$ is a uniformly convergent sequence of functions on $E$ if for any $\varepsilon>0,\exists N_\varepsilon>0$ such that $\abs{f_n(x)-f_m(x)}<\varepsilon$ if $n,m>N_\varepsilon,\,\forall x\in E$.
+
+Similarly, for series convergence, $\sum f_n(x)$ converges uniformly on $E\iff$ for any $\varepsilon>0,\,\exists N_\varepsilon>0$ such that $\abs{\sum^m_{k=n}f_k(x)}\leq \varepsilon$ if $m\geq n\geq N_\varepsilon$. 
+
+\begin{theorem}[Weierstrass M-test]
+Suppose $\exists M_n\geq 0$ such that $\sum^\infty_0 M_n$ is finite and $\abs{f_x(x)}\leq M_n,n\geq n_0\,\forall x\in E\implies \sum f_n(x)$ converges uniformly on $E$.
+\end{theorem}
+
+\subsection{Uniform convergence \& continuity.}
+Let $E\subset X$ and $c$ a limit point of $E$.
+Let $f_n:E\to \reals$ and let $A_n=\lim_{x\to c} f_n(x)$ exist.
+If $f_n\to f$ uniformly on $E$, then $A=\lim_{x\to c}f(x)$ exists and $A=\lim_{n\to\infty} A_n$, i.e.,
+\begin{equation*}
+\lim_{n\to\infty} \underbrace{\lim_{x\to c}f_n(x)}_{A_n} = \lim_{x\to c}\underbrace{\lim_{n\to\infty} f_n(x)}_{f(x)}
+\end{equation*}
+\begin{remark}
+This swapping of limits is allowed only for uniform convergence. As we saw in the previous section, point-wise convergence destroys preservation of limits.\\
+\emph{Corollary:} If $f_n\to f$ uniformly on $E$ and $f_n$'s are continuous on $E\implies f(x)$ is continuous on $E$.
+\end{remark}
+
+\subsection{Uniform convergence \& integrals.}
+Let $f_n:[a,b]\to\reals,f_n\in\mathcal{R}(\alpha)$ w.r.t some $\alpha$ on $[a,b]$.
+If $f_n\to f$ uniformly on $[a,b]\implies f\in \mathcal{R}(\alpha)$ on $[a,b]$ and 
+\begin{equation*}
+\int^b_a fd\alpha = \lim_{n\to \infty} \int^b_a f_n d\alpha
+\end{equation*}
+
+\subsection{Uniform convergence \& differentiation.}
+Suppose $f_n:(a,b)\to\reals$ be differentiable on $(a,b)$ and if $f_n\to f$ uniformly, then 
+\begin{equation*}
+\lim_{n\to\infty} f'_n(x) = \left(\lim_{n\to\infty}f_n(x)\right)'
+\end{equation*}
+
+\section{Equicontinuous Families.}
+
+\section{Stone-Weierstrass theorem.}

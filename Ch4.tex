@@ -1,0 +1,156 @@
+\chapter{Continuity of Functions}
+
+\section{Limit of a function.}
+Let $X$ and $Y$ be two metric spaces equipped with some distance metrics $d_X, d_Y$.
+Let $E\subset Y$ and $f:E\to Y$, then we denote the \textit{limit of the function $f$} as it approaches the point $p\in X$ as $\lim_{x\to p}f(x)$ and define it as:
+$f(x)\to q$ as $x\to p\equiv \lim_{x\to p} f(x)=q,$ if for any $\varepsilon>0\,\exists \delta_\varepsilon>0$ such that $d_Y(f(x),q) < \varepsilon$ if $0<d_X(x,p)<\delta_\varepsilon, x\in E$.
+Note that speaking of the limit of a function at an isolated point (i.e., if $p\in E$ but $p\notin E'$) is irrelevant.
+\begin{figure}[!ht]
+    \centering
+    \scalebox{.80}{\input{figures/Ch4F1.tex}}
+    \caption{Pictorial mapping of neighbourhood of $p\in E$ to $q\in Y$ under $f$}
+    \label{fig:contNeigh}
+\end{figure}
+
+This definition is represented in Fig. \ref{fig:contNeigh} where $\mathcal{N}_{\delta_\varepsilon}(p)$ gets mapped to $\mathcal{N}_\varepsilon (q)$.
+Since $\varepsilon$ is arbitrary, the neighbourhood around point $q$ can be made arbitrarily small, and still one would be able to find a corresponding point $x$ in the $\delta_\varepsilon$ neighbourhood of $p$.
+Note that there could be a hole in the neighbourhood $\mathcal{N}_{\varepsilon}$ at $f(p)$.
+That is, for the definition of the limit $\lim_{x\to p} f(x)$, the value of the function at $p$ is irrelevant.
+
+An alternate \textit{sequential definition} of the limit of a function at a point uses the preservation of sequential limits under functional mappings.
+For any sequence $p_n$ in $E$, if $p_n\to p, p_n\neq p$ holds then $f(p_n)\to q$ $\iff \lim_{x\to p}f(x)=q$.
+Note that similar definitions of limit hold for functions in higher dimensions.
+That is, $\lim_{x\to p}f(x)=q=(q_1,\cdots,q_k) \iff \lim_{x\to p}f_i(x)=q_i$ for $i=1,2,\cdots,k$.
+
+The sequential definition of limits of a function is very useful since it helps us to borrow the important results of sequence convergence algebra, and use them to automatically get limit algebra results.
+These limit algebra results are as follows.
+If $\lim_{x\to p}f(x)$, $\lim_{x\to p}g(x)$ exist, then
+\begin{enumerate}[label=(\roman*)]
+    \item  $\lim_{x\to p}\alpha f(x) + \beta g(x) = \alpha \lim_{x\to p}f(x) + \beta \lim_{x\to p} g(x)$
+    \item $\lim_{x\to p} f(x)\cdot g(x) = \lim_{x\to p}f(x)\cdot \lim_{x\to p}g(x)$
+    \item $\lim_{x\to p} \dfrac{f(x)}{g(x)} = \dfrac{\lim_{x\to p}f(x)}{\lim_{x\to p}g(x)}$\\
+    provided $\lim_{x\to p}g(x)\neq 0$ and $g(x)\neq 0$.
+\end{enumerate}
+
+\subsection{Limits at infinity.}
+Recall that $\bar{\reals}=\reals\cup\{-\infty,+\infty\}$. We can define neighbourhoods in $\bar{\reals}$ as $(x-r,x+r)$ if $x\in\reals, (a,+\infty)$ when $x=+\infty$, and $(-\infty,b)$ when $x=-\infty$ ($a,b\in\reals$).
+If $E\subset\reals$, then $+\infty$ is a limit point of $E$ iff $E$ is unbounded above, and $-\infty$ is a limit point if $E$ iff $E$ is unbounded below.
+Now if $+\infty\in E',f:E\to\reals,$ we can talk about $\lim_{x\to\infty}f(x)=L\in\reals\iff \abs{f(x)-L}<\varepsilon$ if $x>a_\varepsilon,x\in E,\lim_{x\to a}f(x)=+\infty$ if $a\in E'$.
+
+However, one has to be aware of indeterminate forms such as $\infty-\infty,0\cdot(\pm\infty),\pm\infty/\pm\infty$ when applying algebraic properties to limits.
+
+\section{Continuity of a function.}
+Using the definition of limits of a function, we can now define what it means for a function to be continuous at a point.
+A function $f:E\to Y$ is continuous at a point $p$ if for any $\varepsilon>0$, $\exists \delta\varepsilon >0$ such that $d_Y(f(x),f(p))< \varepsilon$ if $d_X(x,p)<\delta_\varepsilon$ and $x\in E$.
+Or, $f\left(\mathcal{N}_{\delta_\varepsilon}(p)\cap E\right) \subset \mathcal{N}_\varepsilon(f(p))$.
+Comparing this with the definition of a limit, we find one key difference.
+For the definition of a limit, the point $p\in E'$ is a limit point.
+
+This has two consequences.
+For some $f:E\to Y$ and $p\in E$
+\begin{enumerate}
+\item If $p\in E'$ then if $f$ is continuous at $p \iff \lim{x\to p} f(x) = f(p)$
+\item If $p\notin E'$, or $p$ is an isolated point, then \textbf{any} function is continuous at $p$
+\end{enumerate}
+
+\subsection{Continuity of Compositions.}
+Suppose $a\in A\subset X, b\in B\subset Y$.
+Further suppose $f:A\to Y, f(A)\subset B$ and $g:B\to Z$.
+If we define $g\circ f (x)=g(f(x)), x\in A$, then $g\circ f:A\to Z$, then the continuity of $f$ at $a$ and $g$ at $f(x)$ implies the continuity of $g\circ f$ at $a$.
+This is a consequence of the sequential characterization of continuity.
+
+\subsection{Global Continuity Theorem.}
+Global continuity theorem states that for continuous functions, the pre-image of any open (closed) set is open (closed) [see Fig. \ref{fig:gct}].
+\begin{theorem}[Global Continuity Theorem.]
+A function $f:E\to Y$ is continuous $\iff$ for \emph{any} open set $V\subset Y, f^{-1}(V)$ is also open.
+\end{theorem}
+As a consequence, the pre-image of a closed set is also closed under continuous functions since if $V (f^{-1}(V))$  is open, $V^c (f^{-1}(V^c) = f^{-1}(V^c)^c)$ is closed.
+\begin{figure}[!ht]
+    \centering
+    \scalebox{0.80}{\input{figures/Ch4F2.tex}}
+    \caption{Pre-image of an open set under a continuous function}
+    \label{fig:gct}
+\end{figure}
+
+\section{Compactness and Continuity.}
+Compactness is preserved by continuous functions.
+That is, if $X$ is  compact metric space and $f:X\to Y$ is continuous, then $f(X)$ is also compact.
+This is a consequence of global continuity theorem applied to the definition of compactness (finite open sub-cover for any cover of the set $f(X)$).
+
+\subsection{Continuity of inverse.}
+If $X$ is compact and $f:X\to Y$ continuous and invertible, then its inverse $f^{-1}:Y\to X$ is also continuous.
+
+The continuity of inverse functions can fail for non-compact sets.
+For example, $f:[0,2\pi)\to\reals^2$ be defines as $f(t) = (\cos{t},\sin{t})$.
+The continuity of this function breaks at $(1,0)\in\reals^2$.
+$f^{-1}(1,0)=0$, and $\left(\cos{1/n},-\sin{1/n}\right)\to (1,0)$ as $n\to\infty$, but, $f^{-1}\left(\cos{\frac{1}{n}},-\sin{\frac{1}{n}}\right)= 2\pi-\frac{1}{n}=2\pi$. 
+
+\subsection{Euclidean spaces and continuity.}
+If $X$ is compact and $f:X\to \reals^k$, then $f$ is bounded.
+That is, $\exists M>0$ such that $\abs{f(x)}\leq M\,\forall x\in X$.
+\begin{remark}
+A special case arises when $f$ maps to $reals$, i.e., $f:X\to \reals$.
+If $f$ is continuous and $X$ compact, then $\sup$ and $\inf$ of $f$ are attained in $X$.
+That is, $\exists x^*,x_*\in X$ such that $f(x_*)=\inf_{x\in X}f(x)=m$ and $f(x^*)=\sup_{x\in X}f(x)=M$. 
+\end{remark}
+
+\section{Uniform Continuity.}
+Uniform continuity is a stronger notion which says that the neighbourhood of radius $\delta_\varepsilon$ around a point $x$ gets mapped to a neighbourhood of radius $\varepsilon$.
+Further, there exists $\delta_\varepsilon$ such that the \emph{same} $\delta_\varepsilon$ works for all points $x\in X$.
+
+That is, for any $\varepsilon>0,\,\exists \delta_\varepsilon>0$ such that $d_Y(f(p),f(x))<\varepsilon$ if $d_X(p,x)<\delta_\varepsilon$ for \emph{any} $x\in X$.
+\begin{theorem}
+If $X$ is compact, $f:X\to Y$ continuous $\implies f:X\to Y$ is uniformly continuous.
+\end{theorem}
+
+\section{Continuity and Connectedness.}
+Continuity preserves connctedness.
+Suppose $f:X\to Y$ is continuous  and $E\subset X$ is connected, then $f(E)\subset Y$ is connected as well.
+
+This is not hard to visualize as shown in Fig. \ref{fig:contConnect}.
+Suppose the image $f(E)$ of a connected set $E$ is disconnected.
+This would result in a contradiction of $f$ being discontinuous since there would be some points for which the pre-image of some $\varepsilon$ neighbourhood does not lie in the connected set $E$.
+The only way $f$ would be continuous, is for $E$ to be disconnected too!
+This contradicts with the assumption that $E$ is connected.
+\begin{figure}[!ht]
+    \centering
+    \scalebox{0.75}{\input{figures/Ch4F3.tex}}
+    \caption{Pre-image of an open set under a continuous function}
+    \label{fig:contConnect}
+\end{figure}
+
+This is a general case of the \emph{Intermediate Value Theorem}.
+The connectedness of $f:X\to \reals$ automatically implies that the image $f(X)$ has to be connected.
+That is, $f(X)$ has interval property.
+This naturally proves the intermediate value theorem for functions mapping to $\reals$, since the only connected sets in $\reals$ are intervals.
+
+\section{Discontinuities.}
+For functions mapping to $\real$, there are two directions to approach a point $p\in [a,b]$.
+When approaching from the left, we call it a left-hand limit and when approaching from the right, we call it the right-hand limit of the function.
+
+That is, the left handed limit is\\
+$f(x^-) = \lim_{\substack{p\to x\\p<x}}f(p)=\lim_{p\to x}f\big\rvert_{(a,x)}(x)=\lim_{p\to x^-}f(p)$.\\
+Similarly, the right-handed limit of a function an be defined as
+$f(x^+) = \lim_{\substack{p\to x\\p>x}}f(p)=\lim_{p\to x}f\big\rvert_{(x,b)}(x)=\lim_{p\to x^+}f(p)$.\\
+This allows us to understand the concept of continuity for real functions in terms of left/right-handed limits.
+If $f:[a,b]\to \reals$ and $c\in[a,b]$ then f is continuous $\iff f(c^+)=f(c^-)=f(c)$.
+
+If $f(c^+),f(c^-)$ exist but are not equal, we have a discontinuity of the \emph{first kind}, or a simple discontinuity.
+For example, step function: $f(x)=1, x\geq0, 0$ otherwise. 
+In case $f(c^+)$ or $f(c^-)$ do not exist, it is called a discontinuity of the second kind.
+For example, $f(x)=\sin{1/x}, x\neq0, f(0)=0$.
+Here both $f(0^-),f(0^+)$ do not exist.
+
+\subsection{Monotone Functions.}
+For a function $f:[a,b]\to\reals$, we say $f$ is monotone increasing on $[a,b]$ if $f(x)\leq f(y)$ if $x\leq y;x,y\in(a,b)$.
+It is strictly monotone increasing if $f(x)<f(y)$ holds.
+
+Monotone functions are interesting because they can not have discontinuities of the second kind.
+That is, left-hand and right-hand limits always exist for monotone functions.
+
+Further, if $f:(a,b)\to\reals$ is monotonically increasing, then for any $c\in(a,b)$, $\sup_{a<x<c}f(x)=f(c^-)\leq f(c)\leq f(c^+)=\inf_{c<x<b}f(x)$.
+As a corollary, monotone functions can only have discontinuities of the first kind.
+
+\begin{remark}
+If $f$ is monotone, it can have at most countably many points of discontinuities.
+\end{remark}

@@ -1,0 +1,146 @@
+\chapter{The Riemann-Stieljes Integral}
+
+Suppose $f:(a,b)\to\reals$ is bounded, we want to define a quantity $\int_a^b f$ or $\int_a^b f(x) dx$ as the signed area under the graph of $f$.
+
+In order to do so, we introduce the concept of partitions.
+We say that $P=\{x_1,\cdots,x_N\}$ is a partition of $[a,b]$ if $a=x_1<x_1<\cdots<x_N=b$.
+We say a partition $P$ to be ``finer'' than a partition $Q$, $P\prec Q$, if $P\supset Q$.
+Clearly, refinement is a transitive property, i.e., if $P\prec Q$ and $Q\prec R$, then $P\prec R$ ($P$ finer than $Q$, $Q$ finer than $R\implies$ $P$ finer than $R$).
+Also, for two partitions $P_1,P_2,\exists$ a common refinement $Q$ (think of the trivial example of $Q=P_1\cup P_2$).
+
+\section{Riemann integral.}
+
+\subsection{Lower and Upper sums.}
+Let us define $\Delta x_i=x_{i}-x_{i-1}$, and $m_i=\inf_{[x_{i-1},x_i]} f$, $M_i=\sup{[x_{i-1},x_i]} f$.
+Then we can define the lower/upper sums for function $f$, over a partition $P$ as:
+\begin{equation}
+\begin{split}
+L(P,f) &\coloneqq \sum^N_{i=1} m_i\Delta x_i \eqqcolon \text{ lower sum}\\
+L(P,f) &\coloneqq \sum^N_{i=1} M_i\Delta x_i \eqqcolon \text{ upper sum}
+\end{split}
+\end{equation}
+This is shown for an arbitrary partition in Fig. \ref{fig:uplowSum}.
+\begin{figure}[!ht]
+    \centering
+    \scalebox{0.80}{\input{figures/Ch5F1.tex}}
+    \caption{Upper/lower sums for a function and a given partition}
+    \label{fig:uplowSum}
+\end{figure}
+
+\subsection{Upper and Lower integrals.}
+Note that every partition would have a different upper/lower sum, since if clearly depends on the partition $P$.
+In order to take all partitions into account, we define the upper/lower integrals as:
+\begin{equation}
+\begin{split}
+\loRiemannint{a}{b}f &= \sup_{P}L(P,f)\eqqcolon \text{ lower integral}\\
+\upRiemannint{a}{b}f &= \inf_{P}U(P,f)\eqqcolon \text{ upper integral}
+\end{split}
+\end{equation}
+
+\begin{definition}
+We say a function $f$ is Riemann integrable on $[a,b]$ if $\loRiemannint{a}{b}f=\upRiemannint{a}{b}f$. 
+Then we define $\int^b_a f\coloneqq \loRiemannint{a}{b}f=\upRiemannint{a}{b}f$.
+\end{definition}
+
+\section{Riemann-Stieljes Integral.}
+Let $f:[a,b]\to \reals$ be bounded, and $\alpha:[a,b]\to\reals$ be an increasing function.
+Let $P$ be a partition of $[a,b]$ and $\Delta\alpha_i=\alpha(x_i)-\alpha(x_{i-1})$.
+Then we can define upper and lower sums \emph{with respect to} $\alpha$ as,
+\begin{equation}
+\begin{split}
+U(P,f,\alpha)&\coloneqq\sum^N_{i=1} M_i\Delta\alpha_i\\
+L(P,f,\alpha)&\coloneqq\sum^N_{i=1} m_i\Delta\alpha_i
+\end{split}
+\end{equation}
+Similarly, we define upper/lower integrals with respect to $\alpha$ as,
+\begin{equation}
+\begin{split}
+\loRiemannint{a}{b}f d\alpha &= \sup_{P}L(P,f,\alpha)\\
+\upRiemannint{a}{b}f d\alpha&= \inf_{P}U(P,f,\alpha)
+\end{split}
+\end{equation}
+\begin{definition}
+We say a function $f$ is Riemann integrable on $[a,b]$ w.r.t. $\alpha$ if $\loRiemannint{a}{b}fd\alpha=\upRiemannint{a}{b}fd\alpha$. 
+Then we define $\int^b_a f\coloneqq \loRiemannint{a}{b}fd\alpha=\upRiemannint{a}{b}fd\alpha$.
+\end{definition}
+
+\section{Riemann's Integrability Criterion.}
+The refinement property of partitions allows for $L(P,f,\alpha)\leq L(P^*,f,\alpha)\leq U(P^*,f,\alpha)\leq U(P,f,\alpha)$ if $P^*\prec P$.
+Note that upper and lower sums of always finer partitions would always lie in-between the upper and lower sums over other partitions.
+Using this we can come up with a criterion for integrability.
+\begin{theorem}
+We denote a function $f$ is integrable in the sense of Riemann w.r.t. $\alpha$ as $f\in \mathcal{R}(\alpha)$.\\
+If $f\in\mathcal{R}(\alpha)\iff$ for any $\varepsilon,\,\exists$ a partition $P_\varepsilon$ of $[a,b]$ such that $U(P_\varepsilon,f,\alpha)-L(P_\varepsilon,f,\alpha) = \sum^N_{i=1}(M_i-m_i)\Delta\alpha_i<\varepsilon$.
+\end{theorem}
+
+\section{Integrability theorems.}
+Below are some useful properties on the integrability of functions.
+\begin{enumerate}
+\item If $f:[a,b]\to\reals$ is continuous $\implies f\in \mathcal{R}(\alpha)$ for any $\alpha$ increasing on $[a,b]$.
+\item If $f$ is monotone and $\alpha$ continuous on $[a,b]\implies f\in \mathcal{R}(\alpha)$.
+\item If $f$ is continuous everywhere on $[a,b]$ except at $x=c_1,\cdots,c_N$ and bounded on $[a,b]$, and $\alpha$ continuous at $x=c_1,\cdots,c_N\implies f\in\mathcal{R}(\alpha)$.\\
+Corollary: If $f\in\mathcal{R}(\alpha)$, then modifying the function at finitely many  does not affect its integrability.
+\item If $f:[a,b]\to[m,M]$ is bounded, $\alpha$ increasing, and $\varphi [m,M]\to \reals$ some continuous function, then the composition $\varphi\circ f=\varphi(f)\in\mathcal R(\alpha)$.
+\item Algebraic properties of integrals:\\
+If $f_1,f_2\in\mathcal{R}(\alpha)$ on $[a,b]$, then the following hold
+\begin{enumerate}[label=(5\alph*)]
+\item $\int^b_a f_1d\alpha+\int^b_a f_2d\alpha=\int^b_a (f_1+f_2)d\alpha$
+\item $\int^b_a (cf_1)d\alpha=c\int^b_a f_1d\alpha$ for some $c\in\reals$
+\item $f_1\cdot f_2\in\mathcal{R}(\alpha)$
+\item If $f\in\mathcal{R}(\alpha_1),f\in\mathcal{R}(\alpha_2)$ for $\alpha_1,\alpha_2$ monotone increasing on $[a,b]$, then $f\in\mathcal{R}(\alpha_1+\alpha_2)$, i.e.,\\
+$\int^b_a f d(\alpha_1+\alpha_2) = \int^b_a f d\alpha_1 \int^b_a f d\alpha_2$
+\item If $f\in\mathcal{R}(\alpha)\implies f\in\mathcal{R}(c\alpha)$, where\\
+$\int^b_afd(c\alpha) = c\int^b_afd\alpha$ for some $c\geq 0$
+\item If $f\in\mathcal{R}(\alpha)$ on $[a,b]$, and $a<c<b$, then $f\in\mathcal{R}(\alpha)$ on $[a,c]$ and $[c,b]$, where
+$\int^b_c fd\alpha = \int^c_a fd\alpha + \int^b_c fd\alpha$
+\end{enumerate}
+\item If $m\leq f\leq M$ on $[a,b]$ and $f\in\mathcal{R}(\alpha)\implies m[\alpha(b)-\alpha(a)]\leq \int^b_a fd\alpha\leq M[\alpha(b)- \alpha(a)]$
+\item If $f\in\mathcal{R}(\alpha)\implies \abs{f}\in\mathcal{R}(\alpha)$.\\
+Further, $\abs{\int^b_afd\alpha}\leq \int^b_a\abs{f} d\alpha$
+\item Monotonicity of Integral.\\
+If $f_1(x)\leq f_2(x)\,\forall x\in[a,b]\implies \int^b_a f_1d\alpha\leq \int^b_a f_2d\alpha$
+\end{enumerate}
+
+\subsection{Riemann-Stieljes Integral as Riemann Integral.}
+
+We say a function $f:[a,b]\to \reals$ is \textit{differentiable} at $c\in(a,b)$ if
+\begin{equation*}
+f'(c)\coloneqq \lim_{x\to c}\frac{f(x)-f(c)}{x-c} = \lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+\end{equation*}
+A natural consequence is the \textbf{Mean-Value theorem} for continuous and differentiable functions.
+Let $f$ be continuous on $[a,b]$ and follow the equation above.
+Then $\exists c\in (a,b)$ such that $f'(c)=\dfrac{f(b)-f(a)}{b-a}$.
+
+\begin{theorem}
+Suppose $\alpha:[a,b]\to\reals$ is an increasing, continuous function on $[a,b]$, and differentiable on $(a,b)$.
+Further assume $\alpha'\in\mathcal{R}$, then if $f:[a,b]\to\reals$ is bounded then $f\in\mathcal{R}(\alpha)\iff f\alpha'\in\mathcal R$, i.e.,
+\begin{equation*}
+\int^b_afd\alpha = \int^b_a f\alpha' dx
+\end{equation*}
+\end{theorem}
+
+\subsection{Change of variables.}
+Let $f:[a,b]\to\reals,\alpha\nearrow$ on $[a,b]$.
+Suppose there is a function $\varphi:[A,B]\to [a,b]$ that is continuous, invertible, and $\varphi(A)=a,\varphi(b)=b$, then \begin{equation*}
+f\circ\varphi\in\mathcal{R}(\beta),\,\beta=\alpha\circ\varphi\iff f\in\mathcal{R}(\alpha)\text{ and }\int^B_Af\circ\varphi d\beta=\int^b_afd\alpha
+\end{equation*}
+
+\begin{theorem}[Fundamental Theorem of Calculus [FTC].]
+Suppose $f:[a,b]\to\reals,f\in\mathcal{R}$ and $F:[a,b]\to\reals$ is such that $F$ is continuous on $[a,b]$, and $F'(x)=f(x)$ on $(a,b)$.
+Then $F$ is called the \emph{anti-derivative} of $f$, i.e., 
+\begin{equation*}
+    \int^b_af(x)dx=F(b)-F(a)
+\end{equation*}
+If $f$ is continuous on $[a,b]$, $F(x)=\int^x_afdx,\,x\in[a,b]$.
+\end{theorem}
+
+\subsubsection{Integration by parts.}
+An important consequence of the FTC is the property of integration by parts.
+If $f,g\in\mathcal{R}$ and $F,G$ are the respective anti-derivatives, then
+\begin{equation*}
+\begin{split}
+\int^b_aFgdx &= F(b)G(b)-F(a)G(a)-\int^b_aGfdx\\
+\equiv \int^b_a FG' dx &= FG\Big\rvert^b_a - \int^b_a Gf' dx
+\end{split}
+\end{equation*}
+The above can be proved by applying the FTC on $FG$ so that $(FG)'=F'G + FG'\implies FG$ is the anti-derivative of $Fg+fG$.
